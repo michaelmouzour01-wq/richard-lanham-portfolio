@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Richard Lanham, PhD | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0F1419;
+            color: #F5F5F7;
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: rgba(15, 20, 25, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #2D3E52;
+            padding: 1rem 0;
+        }
+        
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00D9FF;
+        }
+        
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: #F5F5F7;
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #00D9FF;
+        }
+        
+        .hero {
+            margin-top: 8rem;
+            padding: 5rem 0;
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, transparent 100%);
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero .accent {
+            color: #00D9FF;
+        }
+        
+        .hero p {
+            font-size: 1.125rem;
+            color: #A0A9B3;
+            margin-bottom: 2rem;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        button, .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background-color: #00D9FF;
+            color: #0F1419;
+            font-weight: 600;
+        }
+        
+        .btn-primary:hover {
+            background-color: #00B8D4;
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 1px solid #00D9FF;
+            color: #00D9FF;
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(0, 217, 255, 0.1);
+        }
+        
+        .about {
+            padding: 5rem 0;
+            background-color: rgba(26, 35, 50, 0.5);
+            border-top: 1px solid #2D3E52;
+            border-bottom: 1px solid #2D3E52;
+        }
+        
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .about p {
+            color: #A0A9B3;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .stat {
+            padding: 1.5rem;
+            background-color: #0F1419;
+            border: 1px solid #2D3E52;
+            border-radius: 0.5rem;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #00D9FF;
+        }
+        
+        .stat-label {
+            font-size: 0.875rem;
+            color: #A0A9B3;
+            margin-top: 0.5rem;
+        }
+        
+        .projects {
+            padding: 5rem 0;
+        }
+        
+        .projects h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .divider {
+            width: 3rem;
+            height: 3px;
+            background: linear-gradient(90deg, #00D9FF, transparent);
+            margin-bottom: 3rem;
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .project-card {
+            background-color: #1A2332;
+            border: 1px solid #2D3E52;
+            border-radius: 0.5rem;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+        
+        .project-card:hover {
+            border-color: #00D9FF;
+            transform: translateY(-5px);
+        }
+        
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #F5F5F7;
+        }
+        
+        .project-card p {
+            color: #A0A9B3;
+            margin-bottom: 1.5rem;
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background-color: #2D3E52;
+            color: #F5F5F7;
+            font-size: 0.75rem;
+            border-radius: 9999px;
+        }
+        
+        .video-section {
+            padding: 5rem 0;
+            background-color: rgba(26, 35, 50, 0.5);
+            border-top: 1px solid #2D3E52;
+            border-bottom: 1px solid #2D3E52;
+        }
+        
+        .video-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .video-frame {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border: 1px solid #2D3E52;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        
+        .video-frame iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .skills {
+            padding: 5rem 0;
+        }
+        
+        .skills h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .skill-card {
+            background-color: #1A2332;
+            border: 1px solid #2D3E52;
+            border-radius: 0.5rem;
+            padding: 2rem;
+            transition: border-color 0.3s;
+        }
+        
+        .skill-card:hover {
+            border-color: #00D9FF;
+        }
+        
+        .skill-card h3 {
+            color: #00D9FF;
+            margin-bottom: 1rem;
+        }
+        
+        .skill-card ul {
+            list-style: none;
+            color: #A0A9B3;
+            font-size: 0.875rem;
+        }
+        
+        .skill-card li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact {
+            padding: 5rem 0;
+            background-color: rgba(26, 35, 50, 0.5);
+            border-top: 1px solid #2D3E52;
+            text-align: center;
+        }
+        
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact p {
+            color: #A0A9B3;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        footer {
+            padding: 2rem 0;
+            border-top: 1px solid #2D3E52;
+            text-align: center;
+            color: #A0A9B3;
+            font-size: 0.875rem;
+        }
+        
+        @media (max-width: 768px) {
+            .video-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            nav {
+                gap: 1rem;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">RL</div>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#video">Tutorial</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div>
+                    <p style="color: #00D9FF; font-size: 0.875rem; letter-spacing: 0.1em;">GEOPHYSICIST & SIGNAL PROCESSING SPECIALIST</p>
+                    <h1>Richard Lanham, <span class="accent">PhD</span></h1>
+                    <p>Transforming noisy physical measurements into high-fidelity subsurface and remote-sensing datasets for informed decision-making in the energy sector. Expertise in seismic imaging, signal processing, and geospatial analysis.</p>
+                    <div class="buttons">
+                        <button class="btn-primary">View Resume</button>
+                        <button class="btn-secondary">Get in Touch</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>Professional Background</h2>
+            <p>With a PhD in Physics from Louisiana State University and over 6 years of professional experience, I specialize in converting complex physical measurements into actionable insights for the energy sector. My expertise spans seismic imaging, acoustic signal processing, and geospatial data analysis.</p>
+            <p>Currently serving as Senior Geophysicist at Fugro, I lead interpretation of 3D seismic datasets and oversee deployment of advanced acoustic systems. Previously, as a Quantitative Analyst at Schlumberger, I developed automated processing pipelines that reduced manual handling time by 40% while maintaining exceptional accuracy.</p>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-value">6+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">PhD</div>
+                    <div class="stat-label">Physics</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">20%</div>
+                    <div class="stat-label">SNR Improvement</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">99.9%</div>
+                    <div class="stat-label">Accuracy Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="divider"></div>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>3D Seismic Imaging</h3>
+                    <p>Led interpretation of 3D seismic datasets to map subsea strata in the Gulf of Mexico. Applied advanced wave-equation inversion methods to correct velocity anomalies associated with complex salt bodies.</p>
+                    <div class="tags">
+                        <span class="tag">Seismic Imaging</span>
+                        <span class="tag">Wave Propagation</span>
+                        <span class="tag">Fugro</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>FFT-Based Noise Filter</h3>
+                    <p>Developed an FFT-based noise-attenuation filter to remove drilling interference from real-time survey data, significantly improving signal-to-noise ratio in acoustic measurements.</p>
+                    <div class="tags">
+                        <span class="tag">Signal Processing</span>
+                        <span class="tag">FFT</span>
+                        <span class="tag">Real-time</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>QGIS Geospatial Analysis</h3>
+                    <p>Utilized QGIS for spatial visualization and analysis of seismic survey layouts and interpreted geological features. Integrated diverse geospatial data to refine exploration targets.</p>
+                    <div class="tags">
+                        <span class="tag">QGIS</span>
+                        <span class="tag">GIS</span>
+                        <span class="tag">Geospatial</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Python Automation</h3>
+                    <p>Automated processing of acoustic sonic logs using Python (NumPy, SciPy, Pandas), reducing manual handling time by 40% while maintaining 99.9% accuracy.</p>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Automation</span>
+                        <span class="tag">Data Science</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="video" class="video-section">
+        <div class="container">
+            <h2>QGIS Tutorial</h2>
+            <div class="divider"></div>
+            <div class="video-content">
+                <div>
+                    <h3>Clipping Vector Data in QGIS</h3>
+                    <p style="color: #A0A9B3; margin-top: 1rem;">This tutorial demonstrates advanced geospatial data manipulation techniques using QGIS. Learn how to efficiently clip vector datasets to specific regions of interest, a fundamental skill in GIS analysis and spatial data management.</p>
+                    <div style="margin-top: 2rem; color: #A0A9B3;">
+                        <p style="margin-bottom: 1rem;"><strong style="color: #F5F5F7;">✓ Vector Data Clipping</strong> - Efficiently subset spatial datasets</p>
+                        <p style="margin-bottom: 1rem;"><strong style="color: #F5F5F7;">✓ Spatial Analysis</strong> - Extract meaningful geographic insights</p>
+                        <p><strong style="color: #F5F5F7;">✓ GIS Workflows</strong> - Professional geospatial data management</p>
+                    </div>
+                </div>
+                <div class="video-frame">
+                    <iframe src="https://www.youtube.com/embed/az1wbce5gyk" title="Clip Vector data in QGIS" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills">
+        <div class="container">
+            <h2>Technical Expertise</h2>
+            <div class="divider"></div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Geophysics</h3>
+                    <ul>
+                        <li>• Seismic Imaging & Interpretation</li>
+                        <li>• Wave Propagation Analysis</li>
+                        <li>• Acoustic Signal Processing</li>
+                        <li>• Wireline Logging Analysis</li>
+                        <li>• Reservoir Characterization</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Software & Tools</h3>
+                    <ul>
+                        <li>• Python (NumPy, SciPy, Pandas)</li>
+                        <li>• MATLAB</li>
+                        <li>• QGIS & ArcGIS</li>
+                        <li>• Digital Signal Processing</li>
+                        <li>• Monte Carlo Simulations</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Specializations</h3>
+                    <ul>
+                        <li>• Data Automation & Pipelines</li>
+                        <li>• Geospatial Analysis</li>
+                        <li>• Algorithm Development</li>
+                        <li>• Real-time Data Processing</li>
+                        <li>• Technical Leadership</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Let's Connect</h2>
+            <p>I'm interested in discussing geophysics projects, signal processing challenges, and collaborative opportunities in the energy and tech sectors.</p>
+            <div class="buttons">
+                <button class="btn-primary">Email Me</button>
+                <button class="btn-secondary">LinkedIn</button>
+                <button class="btn-secondary">GitHub</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Richard Lanham, PhD. All rights reserved.</p>
+            <p>Geophysicist | Signal Processing Specialist | Geospatial Analyst</p>
+        </div>
+    </footer>
+</body>
+</html>
